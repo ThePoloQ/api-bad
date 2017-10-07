@@ -1,5 +1,5 @@
 <?php
-
+#test
 $wsAuthJson = json_encode(array ("Login" => "", "Password" => ""));
 
 $bgColorR= "#83d0ff";
