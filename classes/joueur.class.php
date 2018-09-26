@@ -1,6 +1,6 @@
 <?php
-//  var FFBaDLogin = "********";
-//  var FFBadPwd = "********";
+//  var FFBaDLogin = "";
+//  var FFBadPwd = "";
 //  var FFBadURL = "https://ws.ffbad.org/rest/";
 //  url = FFBadURL+'?AuthJson={"Login":"'+FFBaDLogin+'","Password":"'+FFBadPwd+'"}&QueryJson={"Function":"ws_getresultbylicence","Param":{"Param1":"06774602"}}';
 //  url = FFBadURL+'?AuthJson={"Login":"'+FFBaDLogin+'","Password":"'+FFBadPwd+'"}&QueryJson={"Function":"ws_getresultbylicence","Param":{"Param1":"06774602"}}';
