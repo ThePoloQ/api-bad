@@ -92,14 +92,14 @@ echo $joueur->getHTMLClassements();
         
         foreach ($results as $result){
           if ($result['EMA_TDI_ID'] != 1 && $result['EMA_TDI_ID'] != 2 ) continue;
-          $strCol = '<table class="table table-condensed" style="margin-bottom:0px"><thead><th>Stade</th><th></th><th>Score</th><th colspan="2">Adversaire</th></tr></thead><tbody>';
+          $strCol = '<table class="table table-condensed" style="margin-bottom:0px"><thead><th></th><th>Stade</th><th>Score</th><th colspan="2">Adversaire</th></tr></thead><tbody>';
           $resEnt = enteteTableau($strCol,$EVR_SLUG,$result);
           echo $resEnt[0];
           $EVR_SLUG = $resEnt[1];
           
           echo "<tr>
+          <td class=\"".($result['EPA_IS_VICTOIRE'] ? 'bg-success' : 'bg-danger')."\">&nbsp;</td>
           <td>".$result['TOUR']."</td>
-          <td>".($result['EPA_IS_VICTOIRE'] ? 'V' : 'D')."</td>
           <td>".Joueur::renderScore($result['EMA_SCORE'],$result['EPA_IS_VICTOIRE'])."</td>";
           if (isset($result['ADVERSAIRE'][0]))
             $cols = "<td><a href=\"/ffbad/?value=".$result['ADVERSAIRE'][0]['EVI_LICENCE']."\">".$result['ADVERSAIRE'][0]['EVI_PRENOM'].' '.$result['ADVERSAIRE'][0]['EVI_NOM']."</a></td>
@@ -138,14 +138,14 @@ echo $joueur->getHTMLClassements();
         
         foreach ($results as $result){
           if ($result['EMA_TDI_ID'] != 3 && $result['EMA_TDI_ID'] != 4 ) continue;
-          $strCol = '<table class="table table-condensed" style="margin-bottom:0px"><thead><tr><th>Stade</th><th></th><th>Score</th><th colspan="2">Match</th></tr></thead><tbody>';
+          $strCol = '<table class="table table-condensed" style="margin-bottom:0px"><thead><tr><th></th><th>Stade</th><th>Score</th><th colspan="2">Match</th></tr></thead><tbody>';
           $resEnt = enteteTableau($strCol,$EVR_SLUG,$result);
           echo $resEnt[0];
           $EVR_SLUG = $resEnt[1];
             
           echo"<tr>
+          <td rowspan='4' class=\"".($result['EPA_IS_VICTOIRE'] ? 'bg-success' : 'bg-danger')."\">&nbsp;</td>
           <td rowspan='4'>".$result['TOUR']."</td>
-          <td rowspan='4'>".($result['EPA_IS_VICTOIRE'] ? 'V' : 'D')."</td>
           <td rowspan='4'>".$result['EMA_SCORE']."</td>";
           
           if (isset($result['PARTENAIRE'][0]))
@@ -208,14 +208,14 @@ echo $joueur->getHTMLClassements();
         
         foreach ($results as $result){
           if ($result['EMA_TDI_ID'] != 5) continue;
-          $strCol = '<table class="table table-condensed" style="margin-bottom:0px"><thead><tr><th>Stade</th><th></th><th>Score</th><th colspan="2">Match</th></tr></thead><tbody>';
+          $strCol = '<table class="table table-condensed" style="margin-bottom:0px"><thead><tr><th></th><th>Stade</th><th>Score</th><th colspan="2">Match</th></tr></thead><tbody>';
           $resEnt = enteteTableau($strCol,$EVR_SLUG,$result);
           echo $resEnt[0];
           $EVR_SLUG = $resEnt[1];
             
           echo"<tr>
+          <td rowspan='4' class=\"".($result['EPA_IS_VICTOIRE'] ? 'bg-success' : 'bg-danger')."\">&nbsp;</td>
           <td rowspan='4'>".$result['TOUR']."</td>
-          <td rowspan='4'>".($result['EPA_IS_VICTOIRE'] ? 'V' : 'D')."</td>
           <td rowspan='4'>".$result['EMA_SCORE']."</td>";
           
           if (isset($result['PARTENAIRE'][0]))
