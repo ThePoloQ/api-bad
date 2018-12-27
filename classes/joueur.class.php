@@ -1,16 +1,16 @@
 <?php
-//  var FFBaDLogin = "********";
-//  var FFBadPwd = "********";
+//  var FFBaDLogin = "";
+//  var FFBadPwd = "";
 //  var FFBadURL = "https://ws.ffbad.org/rest/";
 //  url = FFBadURL+'?AuthJson={"Login":"'+FFBaDLogin+'","Password":"'+FFBadPwd+'"}&QueryJson={"Function":"ws_getresultbylicence","Param":{"Param1":"06774602"}}';
 //  url = FFBadURL+'?AuthJson={"Login":"'+FFBaDLogin+'","Password":"'+FFBadPwd+'"}&QueryJson={"Function":"ws_getresultbylicence","Param":{"Param1":"06774602"}}';
-//  url = FFBadURL+'?AuthJson={"Login":"********","Password":"********"}&QueryJson={"Function":"ws_getresultbylicence","Param":{"Param1":"07019781"}}';
-//  url = FFBadURL+'?AuthJson={"Login":"********","Password":"********"}&QueryJson={"Function":"ws_getresultbylicence","Param":{"Param1":"00556828"}}';
-//  url = FFBadURL+'?AuthJson={"Login":"********","Password":"********"}&QueryJson={"Function":"ws_getresultbylicence","Param":{"Param1":"06633042"}}';
-//  https://ws.ffbad.org/rest/?AuthJson={"Login":"********","Password":"********"}&QueryJson={"Function":"ws_getresultbylicence","Param":{"Param1":"07034602"}}
-//  https://ws.ffbad.org/rest/?AuthJson={"Login":"********","Password":"********"}&QueryJson={"Function":"ws_getrefereesbynamepart","Param":{"Param1":"HARLIER"}}
-//  https://ws.ffbad.org/rest/?AuthJson={"Login":"********","Password":"********"}&QueryJson={"Function":"ws_getlicenceinfobystartnom","Param":{"Param1":"%CHARLIER"}}
-//  https://ws.ffbad.org/rest/?AuthJson={"Login":"********","Password":"********"}&QueryJson={"Function":"ws_getlicenceinfolistbyarrayoflicence","Param":{"Param1":["00556828","00556828"]}}
+//  url = FFBadURL+'?AuthJson={"Login":"FFBaDLogin","Password":"FFBadPwd"}&QueryJson={"Function":"ws_getresultbylicence","Param":{"Param1":"07019781"}}';
+//  url = FFBadURL+'?AuthJson={"Login":"FFBaDLogin","Password":"FFBadPwd"}&QueryJson={"Function":"ws_getresultbylicence","Param":{"Param1":"00556828"}}';
+//  url = FFBadURL+'?AuthJson={"Login":"FFBaDLogin","Password":"FFBadPwd"}&QueryJson={"Function":"ws_getresultbylicence","Param":{"Param1":"06633042"}}';
+//  https://ws.ffbad.org/rest/?AuthJson={"Login":"FFBaDLogin","Password":"FFBadPwd"}&QueryJson={"Function":"ws_getresultbylicence","Param":{"Param1":"07034602"}}
+//  https://ws.ffbad.org/rest/?AuthJson={"Login":"FFBaDLogin","Password":"FFBadPwd"}&QueryJson={"Function":"ws_getrefereesbynamepart","Param":{"Param1":"HARLIER"}}
+//  https://ws.ffbad.org/rest/?AuthJson={"Login":"FFBaDLogin","Password":"FFBadPwd"}&QueryJson={"Function":"ws_getlicenceinfobystartnom","Param":{"Param1":"%CHARLIER"}}
+//  https://ws.ffbad.org/rest/?AuthJson={"Login":"FFBaDLogin","Password":"FFBadPwd"}&QueryJson={"Function":"ws_getlicenceinfolistbyarrayoflicence","Param":{"Param1":["00556828","00556828"]}}
 
 include_once('../config/config.php');
 include_once('../classes/ffbadSoap.class.php');
@@ -43,9 +43,9 @@ class joueur{
       global $defaultRes;
       global $wsAuthJson;
 
-      //Contruction de l'objet Requête
+      //Contruction de l'objet RequÃªte
       $Query["Function"] = $ws_fonction;
-      //Construction avec 2 paramêtres
+      //Construction avec 2 paramÃªtres
       $Query["Param"] = $params;
 
       $QueryJson = json_encode($Query);
