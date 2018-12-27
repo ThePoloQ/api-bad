@@ -18,11 +18,14 @@ function enteteTableau($strCol, $EVR_SLUG, $result){
       if($result['IsInRanking']) $pClass = "panel-success";
       
       $points = "";
+      $valid = "";
+
+      if($result['EVR_IS_VALID'] == 0) $valid .= ' <small> - <span class="text-warning">En cours de validation</span></small>';
       if ($result['EVR_RESULTAT'] > 0.0001) $points="<small> - ".$result['EVR_RESULTAT']." pts</small>";
       
       $output .= '<div class="panel '.$pClass.'">';
         $output .= '<div class="panel-heading">';
-          $output .= "<b>".$result['EVN_NOM']."</b>".$points."<br/>";
+          $output .= "<b>".$result['EVN_NOM']."</b>".$points.$valid."<br/>";
         $output .= "</div>";
         $output .= '<div class="panel-body">';
           $output .= "<small>";
@@ -43,7 +46,9 @@ $joueur = new Joueur(array( "Param1" => sprintf("%08d",htmlentities($_POST['valu
 $infos = $joueur->getInfos();
 $classemt = $joueur->getClassements();
 $results = $joueur->getResultats();
-
+$clstSH =  $classemt[0];
+$clstDB =  $classemt[1];
+$clstMX =  $classemt[2];
 
 echo $joueur->getHTMLPresentation();
 
@@ -64,6 +69,23 @@ echo $joueur->getHTMLClassements();
     <!-- Tab panes -->
     <div class="tab-content" style="padding-top: 5px;">
       <div role="tabpanel" class="tab-pane active" id="simple">
+        <div class="row" style="margin: 0 5px">
+        <div class="col-md-4 col-md-offset-4 panel panel-default">
+          <div class="panel-body" style="text-align:center">
+            <?php
+              $resC = explode('|',$clstSH['CHE_LISTE_RESULTAT']);
+              $resR = explode('|',$clstSH['CHE_LISTE_RESULTAT_COMPLET']);
+              foreach ($resC as $k => $r){
+                echo "<span class='label label-primary' style='margin: 0 5px'>".sprintf('%01.2f',$r);
+                if (strcmp($r,$resR[$k]) != 0 ){
+                  echo "* (".sprintf('%01.2f',$resR[$k]).")";
+                }
+                echo "</span>";
+              }
+            ?>
+          </div>
+        </div>
+        </div>
 
         <?php
         $EVR_SLUG = NULL;
@@ -92,6 +114,23 @@ echo $joueur->getHTMLClassements();
         ?>
       </div>
       <div role="tabpanel" class="tab-pane" id="double">
+        <div class="row" style="margin: 0 5px">
+        <div class="col-md-4 col-md-offset-4 panel panel-default">
+          <div class="panel-body" style="text-align:center">
+            <?php
+              $resC = explode('|',$clstDB['CHE_LISTE_RESULTAT']);
+              $resR = explode('|',$clstDB['CHE_LISTE_RESULTAT_COMPLET']);
+              foreach ($resC as $k => $r){
+                echo "<span class='label label-primary' style='margin: 0 5px'>".sprintf('%01.2f',$r);
+                if (strcmp($r,$resR[$k]) != 0 ){
+                  echo "* (".sprintf('%01.2f',$resR[$k]).")";
+                }
+                echo "</span>";
+              }
+            ?>
+          </div>
+        </div>
+        </div>
         
       <?php
             
@@ -145,6 +184,23 @@ echo $joueur->getHTMLClassements();
 
       
       <div role="tabpanel" class="tab-pane" id="mixte">
+        <div class="row" style="margin: 0 5px">
+        <div class="col-md-4 col-md-offset-4 panel panel-default">
+          <div class="panel-body" style="text-align:center">
+            <?php
+              $resC = explode('|',$clstMX['CHE_LISTE_RESULTAT']);
+              $resR = explode('|',$clstMX['CHE_LISTE_RESULTAT_COMPLET']);
+              foreach ($resC as $k => $r){
+                echo "<span class='label label-primary' style='margin: 0 5px'>".sprintf('%01.2f',$r);
+                if (strcmp($r,$resR[$k]) != 0 ){
+                  echo "* (".sprintf('%01.2f',$resR[$k]).")";
+                }
+                echo "</span>";
+              }
+            ?>
+          </div>
+        </div>
+        </div>
 
         <?php
         
