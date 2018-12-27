@@ -204,9 +204,9 @@ class joueur{
     $output .= '          </thead>';
     $output .= '          <tbody style="text-align:center">';
     $output .= '            <tr>';
-    $output .= '              <td>'.self::renderClassement($this->classemts[0]["TCL_NOM"]).'<BR/>'.$this->classemts[0]["CHE_COTE_FFBAD"].'</td>';
-    $output .= '              <td>'.self::renderClassement($this->classemts[1]["TCL_NOM"]).'<BR/>'.$this->classemts[1]["CHE_COTE_FFBAD"].'</td>';
-    $output .= '              <td>'.self::renderClassement($this->classemts[2]["TCL_NOM"]).'<BR/>'.$this->classemts[2]["CHE_COTE_FFBAD"].'</td>';
+    $output .= '              <td>'.self::renderClassement($this->classemts[0]["TCL_NOM"]).'<BR/>'.$this->classemts[0]["CHE_COTE_FFBAD"].'<BR/><small>('.$this->classemts[0]["CHE_RANG"].')</small></td>';
+    $output .= '              <td>'.self::renderClassement($this->classemts[1]["TCL_NOM"]).'<BR/>'.$this->classemts[1]["CHE_COTE_FFBAD"].'<BR/><small>('.$this->classemts[1]["CHE_RANG"].')</small></td>';
+    $output .= '              <td>'.self::renderClassement($this->classemts[2]["TCL_NOM"]).'<BR/>'.$this->classemts[2]["CHE_COTE_FFBAD"].'<BR/><small>('.$this->classemts[2]["CHE_RANG"].')</small></td>';
     $output .= '            </tr>';
     $output .= '          </tbody>';
     $output .= '        </table>';
