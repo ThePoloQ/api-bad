@@ -47,7 +47,7 @@ foreach ($licences as $licence) {
   $arrLicenses[] = sprintf("%08d",$licence);
 }
 
-  $joueurs = new Joueur($arrLicenses, "Param2" => $date), $ws_fonction);
+  $joueurs = new Joueur(array("Param1" => $arrLicenses, "Param2" => $date), $ws_fonction);
   $rows = $joueurs->getSingleRows();
   if (!empty($rows)) {
     echo $rows;
