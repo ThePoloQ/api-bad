@@ -46,7 +46,7 @@ $joueur = new Joueur(array( "Param1" => sprintf("%08d",htmlentities($_POST['valu
 $infos = $joueur->getInfos();
 $classemt = $joueur->getClassements();
 $results = $joueur->getResultats();
-$clstSH =  $classemt[0];
+$clstSP =  $classemt[0];
 $clstDB =  $classemt[1];
 $clstMX =  $classemt[2];
 
@@ -70,11 +70,11 @@ echo $joueur->getHTMLClassements();
     <div class="tab-content" style="padding-top: 5px;">
       <div role="tabpanel" class="tab-pane active" id="simple">
         <div class="row" style="margin: 0 5px">
-        <div class="col-md-4 col-md-offset-4 panel panel-default">
-          <div class="panel-body" style="text-align:center">
+        <div class="col-md-4 col-md-offset-4 panel panel-default" style="padding:0 2px">
+          <div class="panel-body" style="text-align:center;padding:5px">
             <?php
-              $resC = explode('|',$clstSH['CHE_LISTE_RESULTAT']);
-              $resR = explode('|',$clstSH['CHE_LISTE_RESULTAT_COMPLET']);
+              $resC = explode('|',str_replace(",","",$clstSP['CHE_LISTE_RESULTAT']));
+              $resR = explode('|',$clstSP['CHE_LISTE_RESULTAT_COMPLET']);
               foreach ($resC as $k => $r){
                 echo "<span class='label label-primary' style='margin: 0 2px'>".sprintf('%01.2f',$r);
                 if (strcmp($r,$resR[$k]) != 0 ){
@@ -115,10 +115,10 @@ echo $joueur->getHTMLClassements();
       </div>
       <div role="tabpanel" class="tab-pane" id="double">
         <div class="row" style="margin: 0 5px">
-        <div class="col-md-4 col-md-offset-4 panel panel-default">
-          <div class="panel-body" style="text-align:center">
+        <div class="col-md-4 col-md-offset-4 panel panel-default" style="padding:0 2px">
+          <div class="panel-body" style="text-align:center; padding: 5px">
             <?php
-              $resC = explode('|',$clstDB['CHE_LISTE_RESULTAT']);
+              $resC = explode('|',str_replace(",","",$clstDB['CHE_LISTE_RESULTAT']));
               $resR = explode('|',$clstDB['CHE_LISTE_RESULTAT_COMPLET']);
               foreach ($resC as $k => $r){
                 echo "<span class='label label-primary' style='margin: 0 2px'>".sprintf('%01.2f',$r);
@@ -201,10 +201,10 @@ echo $joueur->getHTMLClassements();
       
       <div role="tabpanel" class="tab-pane" id="mixte">
         <div class="row" style="margin: 0 5px">
-        <div class="col-md-4 col-md-offset-4 panel panel-default">
-          <div class="panel-body" style="text-align:center">
+        <div class="col-md-4 col-md-offset-4 panel panel-default" style="padding:0 2px">
+          <div class="panel-body" style="text-align:center;padding: 5px">
             <?php
-              $resC = explode('|',$clstMX['CHE_LISTE_RESULTAT']);
+              $resC = explode('|',str_replace(",","",$clstMX['CHE_LISTE_RESULTAT']));
               $resR = explode('|',$clstMX['CHE_LISTE_RESULTAT_COMPLET']);
               foreach ($resC as $k => $r){
                 echo "<span class='label label-primary' style='margin: 0 2px'>".sprintf('%01.2f',$r);
