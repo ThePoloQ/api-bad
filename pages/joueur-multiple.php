@@ -12,7 +12,7 @@ $licences = explode(';',htmlentities($_POST['value']));
 
 $date = htmlentities($_POST['date']);
 
-$ws_fonction = 'ws_getresultbylicencedate';
+$ws_fonction = 'ws_getrankingallbyarrayoflicencedate';
 
 ?>
 
@@ -37,17 +37,21 @@ $ws_fonction = 'ws_getresultbylicencedate';
           <th style="text-align:center">Points</th>
           <th style="text-align:center">Classement</th>
           <th style="text-align:center">Points</th>
-        </tr>        
+        </tr>
       </thead>
       <tbody style="text-align:center">
 <?php
+$arrLicenses = array ();
 foreach ($licences as $licence) {
   if (empty($licence)) continue;
-  $joueur = new Joueur(array( "Param1" => sprintf("%08d",$licence), "Param2" => $date), $ws_fonction);
-  $row = $joueur->getSingleRow();
-  if (empty($row)) continue;
-  echo $row;
+  $arrLicenses[] = sprintf("%08d",$licence);
 }
+
+  $joueurs = new Joueur($arrLicenses, "Param2" => $date), $ws_fonction);
+  $rows = $joueurs->getSingleRows();
+  if (!empty($rows)) {
+    echo $rows;
+  }
 ?>
       </tbody>
     </table>
