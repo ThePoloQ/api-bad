@@ -282,14 +282,14 @@ class joueur{
     if (!$this->estValide) return NULL;
     $today = new DateTime('now');
     $birthday = new DateTime($res2['PER_NAISSANCE']);
-    $age = date_diff($birthday,$today,TRUE)->format('%y');
+    $d = $today->diff($birthday);
 
     $output = '<div style="margin: 5px 0">';
     $output .= '<div class="col-md-4 col-md-offset-4 panel panel-default">';
     $output .= '  <div class="panel-body">';
     $output .= '    <h2 style="text-align:center">'.($this->getPrenom()).' '.($this->getNom()).'</h2>';
     $output .= '    <div style="text-align:center">'.$this->infos['INS_NOM'].' ('.$this->infos["INS_SIGLE"].')</div>';
-    $output .= '    <div style="text-align:center"><small>('.$age.')</small></div>';
+    $output .= '    <div style="text-align:center"><small>('.$d->format('%y').($this->infos['JOU_IS_MUTE'] == 1 ? "&nbsp;- mut&eacute;" : "").')</small></div>';
     $output .= '  </div>';
     $output .= '</div>';
     $output .= '</div>';
