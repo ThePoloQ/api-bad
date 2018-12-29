@@ -189,8 +189,8 @@ class joueur{
     $row2 = "<tr style=\"border-top: 2px solid #ddd\">";
 
     if ($match['EPA_IS_WO'] == 1){
-      $row1 .= "<td rowspan='2' colspan='3'></td>"
-      $row2 .= "<td rowspan='2' colspan='3' style='text-align:center'>&nbsp;- wo -&nbsp;</td>"
+      $row1 .= "<td rowspan='2' colspan='3'></td>";
+      $row2 .= "<td rowspan='2' colspan='3' style='text-align:center'>&nbsp;- wo -&nbsp;</td>";
     }else {
       $row1 .= "<td rowspan='2'>".$match['EMA_SET_WIN_SCORE1']."</td>";
       $row1 .= "<td rowspan='2'>".$match['EMA_SET_WIN_SCORE2']."</td>";
