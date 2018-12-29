@@ -192,15 +192,13 @@ class joueur{
       $row1 .= "<td rowspan='2' colspan='3'></td>";
       $row2 .= "<td rowspan='2' colspan='3' style='text-align:center'>&nbsp;- wo -&nbsp;</td>";
     }elseif ($match['EPA_IS_ABANDON'] == 1) {
-      $scores = explode('-',explode('/',$match['EMA_SCORE']));
-      foreach ($scores as $key => $score) {
-        if ( $key % 2 == 0 ){
-          $row1 .= "<td rowspan='2'>".$score."</td>";
-        }else{
-          $row2 .= "<td rowspan='2'>".$score."</td>";
-        }
+      $sets = explode('/',$match['EMA_SCORE']);
+      foreach ($sets as $k => $set) {
+        $marques = explode('-',$match['EMA_SCORE']);
+        $row1 .= "<td rowspan='2'>".$marques[0]."</td>";
+        $row2 .= "<td rowspan='2'>".$marques[1].(($k == (count($sets) -1)) ? "&nbsp;(ab)": "")."</td>";
       }
-      if (count($scores) < 5 ){
+      if (count($sets) < 3 ){
         $row1 .= "<td rowspan='2'></td>";
         $row2 .= "<td rowspan='2'></td>";
       }
