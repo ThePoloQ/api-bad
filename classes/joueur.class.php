@@ -194,7 +194,7 @@ class joueur{
     }elseif ($match['EPA_IS_ABANDON'] == 1) {
       $sets = explode('/',$match['EMA_SCORE']);
       foreach ($sets as $k => $set) {
-        $marques = explode('-',$match['EMA_SCORE']);
+        $marques = explode('-',$set);
         $row1 .= "<td rowspan='2'>".$marques[0]."</td>";
         $row2 .= "<td rowspan='2'>".$marques[1].(($k == (count($sets) -1)) ? "&nbsp;(ab)": "")."</td>";
       }
