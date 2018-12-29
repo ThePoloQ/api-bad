@@ -282,7 +282,7 @@ class joueur{
     if (!$this->estValide) return NULL;
     $today = new DateTime();
     $birthday = new DateTime($res2['PER_NAISSANCE']);
-    $age = date_diff($birthday,$today,TRUE)->('y');
+    $age = date_diff($birthday,$today,TRUE)->format('y');
 
     $output = '<div style="margin: 5px 0">';
     $output .= '<div class="col-md-4 col-md-offset-4 panel panel-default">';
