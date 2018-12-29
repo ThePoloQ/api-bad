@@ -281,7 +281,7 @@ class joueur{
   public function getHTMLPresentation(){
     if (!$this->estValide) return NULL;
     $today = new DateTime('now');
-    $birthday = new DateTime($res2['PER_NAISSANCE']);
+    $birthday = new DateTime($this->infos['PER_NAISSANCE']);
     $d = $today->diff($birthday);
 
     $output = '<div style="margin: 5px 0">';
