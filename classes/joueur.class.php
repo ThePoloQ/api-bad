@@ -186,15 +186,20 @@ class joueur{
     <td rowspan='4' class=\"".($match['EPA_IS_VICTOIRE'] ? 'bg-success' : 'bg-danger')."\">&nbsp;</td>
     <td rowspan='4'>".$match['TOUR']."</td>";
 
-    $row1 .= "<td rowspan='2'>".$match['EMA_SET_WIN_SCORE1']."</td>";
-    $row1 .= "<td rowspan='2'>".$match['EMA_SET_WIN_SCORE2']."</td>";
-    $row1 .= "<td rowspan='2'>".$match['EMA_SET_WIN_SCORE3']."</td>";
-
     $row2 = "<tr style=\"border-top: 2px solid #ddd\">";
 
-    $row2 .= "<td rowspan='2'>".$match['EMA_SET_LOS_SCORE1']."</td>";
-    $row2 .= "<td rowspan='2'>".$match['EMA_SET_LOS_SCORE2']."</td>";
-    $row2 .= "<td rowspan='2'>".$match['EMA_SET_LOS_SCORE3']."</td>";
+    if ($match['EPA_IS_WO'] == 1){
+      $row1 .= "<td rowspan='2' colspan='3'></td>"
+      $row2 .= "<td rowspan='2' colspan='3' style='text-align:center'>&nbsp;- wo -&nbsp;</td>"
+    }else {
+      $row1 .= "<td rowspan='2'>".$match['EMA_SET_WIN_SCORE1']."</td>";
+      $row1 .= "<td rowspan='2'>".$match['EMA_SET_WIN_SCORE2']."</td>";
+      $row1 .= "<td rowspan='2'>".$match['EMA_SET_WIN_SCORE3']."</td>";
+
+      $row2 .= "<td rowspan='2'>".$match['EMA_SET_LOS_SCORE1']."</td>";
+      $row2 .= "<td rowspan='2'>".$match['EMA_SET_LOS_SCORE2']."</td>";
+      $row2 .= "<td rowspan='2'>".$match['EMA_SET_LOS_SCORE3']."</td>";
+    }
 
     if (isset($match['PARTENAIRE'][0]))
       $part = "<td><a href=\"/ffbad/?value=".$match['PARTENAIRE'][0]['EVI_LICENCE']."\">".$match['PARTENAIRE'][0]['EVI_PRENOM'].' '.$match['PARTENAIRE'][0]['EVI_NOM']."</td><td>".self::renderClassement($match['PARTENAIRE'][0]['TCL_NOM'])."</a></td></tr>";
