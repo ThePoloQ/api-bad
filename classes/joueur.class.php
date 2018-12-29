@@ -174,8 +174,8 @@ class joueur{
   }
 
   public static function renderScore($score,$estVictoire,$estWO = 0, $estAbandon = 0){
-    ($estWO == 1) ? return "- wo -" : "" ;
-    ($estAbandon == 1) ? return $estAbandon." - ab" : "" ;
+    if ($estWO == 1) { return "- wo -" }
+    if ($estAbandon == 1) { return $estAbandon." - ab" }
     return $score; //temporaire
   }
 
