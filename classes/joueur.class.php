@@ -195,8 +195,8 @@ class joueur{
       $sets = explode('/',$match['EMA_SCORE']);
       foreach ($sets as $k => $set) {
         $marques = explode('-',$set);
-        $row1 .= "<td rowspan='2'>".$marques[0]."</td>";
-        $row2 .= "<td rowspan='2'>".$marques[1].(($k == (count($sets) -1)) ? "&nbsp;(ab)": "")."</td>";
+        $row1 .= "<td rowspan='2'>".intval($marques[0])."</td>";
+        $row2 .= "<td rowspan='2'>".intval($marques[1]).(($k == (count($sets) -1)) ? "&nbsp;(ab)": "")."</td>";
       }
       if (count($sets) < 2 ){
         $row1 .= "<td rowspan='2'></td>";
