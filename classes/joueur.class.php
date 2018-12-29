@@ -289,7 +289,7 @@ class joueur{
     $output .= '  <div class="panel-body">';
     $output .= '    <h2 style="text-align:center">'.($this->getPrenom()).' '.($this->getNom()).'</h2>';
     $output .= '    <div style="text-align:center">'.$this->infos['INS_NOM'].' ('.$this->infos["INS_SIGLE"].')</div>';
-    $output .= '    <div style="text-align:center"><small>('.$age."&nbsp;ans".($this->infos['JOU_IS_MUTE'] == 1 ? "&nbsp;- mut&eacute;".($this->infos['PER_PES_ID'] != 1) : "e" ? "").')</small></div>';
+    $output .= '    <div style="text-align:center"><small>('.$age."&nbsp;ans".($this->infos['JOU_IS_MUTE'] == 1 ? "&nbsp;- mut&eacute;".($this->infos['PER_PES_ID'] != 1 : "e" ? "") : "").')</small></div>';
     $output .= '  </div>';
     $output .= '</div>';
     $output .= '</div>';
