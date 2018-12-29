@@ -177,7 +177,7 @@ class joueur{
     return $score; //temporaire
   }
 
-  public static function renderMatchDouble($match = array()){
+  public static function renderMatchDouble($match = array(), $joueur){
     $nbsets = intval($match['EMA_SET_WIN_NB'])+ intval($match['EMA_SET_LOS_NB']);
 
     $row1 = "<tr style=\"border-top: 2px solid #ddd\">
@@ -195,17 +195,17 @@ class joueur{
     $row2 .= "<td rowspan='2'>".$match['EMA_SET_LOS_SCORE3']."</td>";
 
     if (isset($match['PARTENAIRE'][0]))
-      $part = "<td><a href=\"/ffbad/?value=".$match['PARTENAIRE'][0]['EVI_LICENCE']."\">".$match['PARTENAIRE'][0]['EVI_PRENOM'].' '.$match['PARTENAIRE'][0]['EVI_NOM']."</td><td>".Joueur::renderClassement($match['PARTENAIRE'][0]['TCL_NOM'])."</a></td></tr>";
+      $part = "<td><a href=\"/ffbad/?value=".$match['PARTENAIRE'][0]['EVI_LICENCE']."\">".$match['PARTENAIRE'][0]['EVI_PRENOM'].' '.$match['PARTENAIRE'][0]['EVI_NOM']."</td><td>".self::renderClassement($match['PARTENAIRE'][0]['TCL_NOM'])."</a></td></tr>";
     else
       $part = "<td></td><td></td></tr>";
 
     $part .= "<tr style=\"border-bottom:2px solid #ddd;\">
-    <td><b>".$joueur->getPrenom().' '.$joueur->getNom()."</td><td>".Joueur::renderClassement($match['TCL_NOM'])."</b></td>
+    <td><b>".$joueur->getPrenom().' '.$joueur->getNom()."</td><td>".self::renderClassement($match['TCL_NOM'])."</b></td>
     </tr>";
 
 
     if (isset($match['ADVERSAIRE'][0]))
-      $adv = "<td><a href=\"/ffbad/?value=".$match['ADVERSAIRE'][0]['EVI_LICENCE']."\">".$match['ADVERSAIRE'][0]['EVI_PRENOM'].' '.$match['ADVERSAIRE'][0]['EVI_NOM']."</td><td>".Joueur::renderClassement($match['ADVERSAIRE'][0]['TCL_NOM'])."</a></td>
+      $adv = "<td><a href=\"/ffbad/?value=".$match['ADVERSAIRE'][0]['EVI_LICENCE']."\">".$match['ADVERSAIRE'][0]['EVI_PRENOM'].' '.$match['ADVERSAIRE'][0]['EVI_NOM']."</td><td>".self::renderClassement($match['ADVERSAIRE'][0]['TCL_NOM'])."</a></td>
       ";
     else
       $adv .= "<td></td><td></td>";
@@ -213,7 +213,7 @@ class joueur{
     $adv .= "<tr>";
     if (isset($match['ADVERSAIRE'][1]))
       $adv .= "
-      <td><a href=\"/ffbad/?value=".$match['ADVERSAIRE'][1]['EVI_LICENCE']."\">".$match['ADVERSAIRE'][1]['EVI_PRENOM'].' '.$match['ADVERSAIRE'][1]['EVI_NOM']."</td><td>".Joueur::renderClassement($match['ADVERSAIRE'][1]['TCL_NOM'])."</a></td>
+      <td><a href=\"/ffbad/?value=".$match['ADVERSAIRE'][1]['EVI_LICENCE']."\">".$match['ADVERSAIRE'][1]['EVI_PRENOM'].' '.$match['ADVERSAIRE'][1]['EVI_NOM']."</td><td>".self::renderClassement($match['ADVERSAIRE'][1]['TCL_NOM'])."</a></td>
       ";
     else
       $adv .= "<td></td><td></td>";
@@ -234,17 +234,17 @@ class joueur{
     $output = "<tr>
     <td class=\"".($match['EPA_IS_VICTOIRE'] ? 'bg-success' : 'bg-danger')."\">&nbsp;</td>
     <td>".$match['TOUR']."</td>
-    <td>".Joueur::renderScore($match['EMA_SCORE'],$match['EPA_IS_VICTOIRE'])."</td>";
+    <td>".self::renderScore($match['EMA_SCORE'],$match['EPA_IS_VICTOIRE'])."</td>";
     if (isset($match['ADVERSAIRE'][0]))
       $cols = "<td><a href=\"/ffbad/?value=".$match['ADVERSAIRE'][0]['EVI_LICENCE']."\">".$match['ADVERSAIRE'][0]['EVI_PRENOM'].' '.$match['ADVERSAIRE'][0]['EVI_NOM']."</a></td>
-      <td>".Joueur::renderClassement($match['ADVERSAIRE'][0]['TCL_NOM'])."</td>";
+      <td>".self::renderClassement($match['ADVERSAIRE'][0]['TCL_NOM'])."</td>";
     else
       $cols = "<td></td><td></td>";
     $output .= $cols."</tr>";
     return $output;
   }
 
-  public static function renderMoyenne($moyCalc = array(),$moyReelle = array()){
+  public static function renderMoyenne($moyCalc = array(), $moyReelle = array()){
     $output = "";
     foreach ($moyCalc as $k => $r){
        $output .= "<span class='label label-primary' style='margin: 0 2px'>".sprintf('%01.2f',$r);
@@ -253,7 +253,6 @@ class joueur{
       }
       $output .= "</span>";
     }
-
     return $output;
   }
 

@@ -76,7 +76,7 @@ echo $joueur->getHTMLClassements();
             <?php
               $resC = explode('|',str_replace(",","",$clstSP['CHE_LISTE_RESULTAT']));
               $resR = explode('|',$clstSP['CHE_LISTE_RESULTAT_COMPLET']);
-              echo Joueur:renderMoyenne($resC,$resR);
+              echo Joueur::renderMoyenne($resC,$resR);
             ?>
           </div>
         </div>
@@ -92,7 +92,7 @@ echo $joueur->getHTMLClassements();
           echo $resEnt[0];
           $EVR_SLUG = $resEnt[1];
 
-          echo Joueur:renderMatchSimple($result);
+          echo Joueur::renderMatchSimple($result,$joueur);
 
         }
         if ($EVR_SLUG != NULL) {
@@ -109,7 +109,7 @@ echo $joueur->getHTMLClassements();
             <?php
               $resC = explode('|',str_replace(",","",$clstDB['CHE_LISTE_RESULTAT']));
               $resR = explode('|',$clstDB['CHE_LISTE_RESULTAT_COMPLET']);
-              echo Joueur:renderMoyenne($resC,$resR);
+              echo Joueur::renderMoyenne($resC,$resR);
             ?>
           </div>
         </div>
@@ -127,7 +127,7 @@ echo $joueur->getHTMLClassements();
           echo $resEnt[0];
           $EVR_SLUG = $resEnt[1];
 
-          echo Joueur:renderMatchDouble($result);
+          echo Joueur::renderMatchDouble($result,$joueur);
 
         }
         if ($EVR_SLUG != NULL) {
@@ -146,7 +146,7 @@ echo $joueur->getHTMLClassements();
             <?php
               $resC = explode('|',str_replace(",","",$clstMX['CHE_LISTE_RESULTAT']));
               $resR = explode('|',$clstMX['CHE_LISTE_RESULTAT_COMPLET']);
-              echo Joueur:renderMoyenne($resC,$resR);
+              echo Joueur::renderMoyenne($resC,$resR);
             ?>
           </div>
         </div>
@@ -163,7 +163,7 @@ echo $joueur->getHTMLClassements();
           echo $resEnt[0];
           $EVR_SLUG = $resEnt[1];
 
-          echo Joueur:renderMatchDouble($result);
+          echo Joueur::renderMatchDouble($result,$joueur);
 
         }
         if ($EVR_SLUG != NULL) {
