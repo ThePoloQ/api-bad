@@ -191,6 +191,19 @@ class joueur{
     if ($match['EPA_IS_WO'] == 1){
       $row1 .= "<td rowspan='2' colspan='3'></td>";
       $row2 .= "<td rowspan='2' colspan='3' style='text-align:center'>&nbsp;- wo -&nbsp;</td>";
+    }elseif ($match['EPA_IS_ABANDON'] == 1) {
+      $scores = explode('-',explode('/',$match['EMA_SCORE']));
+      foreach ($scores as $key => $score) {
+        if ( $key % 2 == 0 ){
+          $row1 .= "<td rowspan='2'>".$score."</td>";
+        }else{
+          $row2 .= "<td rowspan='2'>".$score."</td>";
+        }
+      }
+      if (count($scores) < 5 ){
+        $row1 .= "<td rowspan='2'></td>";
+        $row2 .= "<td rowspan='2'></td>";
+      }
     }else {
       $row1 .= "<td rowspan='2'>".$match['EMA_SET_WIN_SCORE1']."</td>";
       $row1 .= "<td rowspan='2'>".$match['EMA_SET_WIN_SCORE2']."</td>";
