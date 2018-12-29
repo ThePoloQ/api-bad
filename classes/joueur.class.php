@@ -198,6 +198,10 @@ class joueur{
         $row1 .= "<td rowspan='2'>".$marques[0]."</td>";
         $row2 .= "<td rowspan='2'>".$marques[1].(($k == (count($sets) -1)) ? "&nbsp;(ab)": "")."</td>";
       }
+      if (count($sets) < 2 ){
+        $row1 .= "<td rowspan='2'></td>";
+        $row2 .= "<td rowspan='2'></td>";
+      }
       if (count($sets) < 3 ){
         $row1 .= "<td rowspan='2'></td>";
         $row2 .= "<td rowspan='2'></td>";
