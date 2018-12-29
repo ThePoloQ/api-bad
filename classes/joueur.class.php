@@ -236,7 +236,7 @@ class joueur{
     $output = "<tr>
     <td class=\"".($match['EPA_IS_VICTOIRE'] ? 'bg-success' : 'bg-danger')."\">&nbsp;</td>
     <td>".$match['TOUR']."</td>
-    <td>".self::renderScore($match['EMA_SCORE'],$match['EPA_IS_VICTOIRE'])."</td>";
+    <td>".self::renderScore($match['EMA_SCORE'],$match['EPA_IS_VICTOIRE'],$match['EPA_IS_WO'],$match['EPA_IS_ABANDON'])."</td>";
     if (isset($match['ADVERSAIRE'][0]))
       $cols = "<td><a href=\"/ffbad/?value=".$match['ADVERSAIRE'][0]['EVI_LICENCE']."\">".$match['ADVERSAIRE'][0]['EVI_PRENOM'].' '.$match['ADVERSAIRE'][0]['EVI_NOM']."</a></td>
       <td>".self::renderClassement($match['ADVERSAIRE'][0]['TCL_NOM'])."</td>";
