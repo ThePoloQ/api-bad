@@ -173,7 +173,9 @@ class joueur{
     return '<span class="badge" style="background-color:'.$bgColor.';color:'.$color.'">'.$strClassement.'</span>';
   }
 
-  public static function renderScore($score,$estVictoire){
+  public static function renderScore($score,$estVictoire,$estWO = 0, $estAbandon = 0){
+    ($estWO == 1) : return "- wo -";
+    ($estAbandon == 1) : return $estAbandon." - ab";
     return $score; //temporaire
   }
 
