@@ -280,7 +280,7 @@ class joueur{
 
   public function getHTMLPresentation(){
     if (!$this->estValide) return NULL;
-    $today = new DateTime();
+    $today = new DateTime('now');
     $birthday = new DateTime($res2['PER_NAISSANCE']);
     $age = date_diff($birthday,$today,TRUE)->format('%y');
 
