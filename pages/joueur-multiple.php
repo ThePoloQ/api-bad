@@ -24,8 +24,9 @@ $ws_fonction = 'ws_getrankingallbyarrayoflicencedate';
     <table id="licence-table" class="table table-condensed table-hover table-striped datatable" style="margin-bottom: 0px; width: 100%">
       <thead>
         <tr>
-          <th rowspan=2 style="vertical-align:middle;text-align:center">Pr&eacute;nom NOM</th>
+          <th rowspan=2 style="vertical-align:middle;text-align:center">NOM Pr&eacute;nom</th>
           <th rowspan=2 style="vertical-align:middle;text-align:center">Licence</th>
+          <th rowspan=2 style="vertical-align:middle;text-align:center">Club</th>
           <th colspan=2 style="text-align:center;border: 0px">Simple</th>
           <th colspan=2 style="text-align:center;border: 0px">Double</th>
           <th colspan=2 style="text-align:center;border: 0px">Mixte</th>

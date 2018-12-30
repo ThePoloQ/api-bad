@@ -331,8 +331,9 @@ class joueur{
     $rets = $this->retour;
     foreach ($rets as $ret) {
       $output .=  '            <tr>';
-      $output .= '              <td>'.$ret["PER_PRENOM"].' '.$ret["PER_NOM"].'</td>';
+      $output .= '              <td>'.$ret["PER_PNOM"].' '.$ret["PER_PRENOM"].'</td>';
       $output .= '              <td><a href="/ffbad/?value='.$ret["PER_LICENCE"].'">'.$ret["PER_LICENCE"].'</a></td>';
+      $output .= '              <td>'.$ret["INS_SIGLE"].'-'.$ret["INS_NUMERO_DEPT"].'<br/>'.$ret["INS_NOM"].'</td>';
       $output .= '              <td>'.self::renderClassement($ret["SIMPLE_NOM"]).'</td><td>'.$ret["SIMPLE_COTE_FFBAD"].'</td>';
       $output .= '              <td>'.self::renderClassement($ret["DOUBLE_NOM"]).'</td><td>'.$ret["DOUBLE_COTE_FFBAD"].'</td>';
       $output .= '              <td>'.self::renderClassement($ret["MIXTE_NOM"]).'</td><td>'.$ret["MIXTE_COTE_FFBAD"].'</td>';
