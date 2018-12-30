@@ -20,14 +20,14 @@ $( document ).ready(function() {
     format: 'DD/MM/YYYY',
     allowInputToggle: true,
   });
-  
+
   $('#date-input').val(moment().format('DD/MM/YYYY'));
 
   var rechercheF = function ($val = false){
-    
+
     var $p = $('p.message');
     $p.html("");
-    
+
     if ($val == false) {$val = $('#rechercher-input').val();};
     console.log($val);
     var $date = $('#date-input').val();
@@ -55,16 +55,16 @@ $( document ).ready(function() {
       url: $url,
       success: function(result){
         $r.html(result);
-        
+
         $r.find('#licence-table.datatable').DataTable({
           paging: false,
           dom: '',
-          order: [[ 3, 'desc' ]],
+          order: [[ 4, 'desc' ]],
           columnDefs: [
-            { orderable: false, targets: [2,4,6] }
+            { orderable: false, targets: [3,5,7] }
           ]
         });
-        
+
         $r.find('#recherche-table.datatable').DataTable({
           paging: false,
           dom: '',
@@ -73,7 +73,7 @@ $( document ).ready(function() {
             { orderable: false, targets: [5] }
           ]
         });
-        
+
         $r.find('#res-tabs nav-tabs a').click(function (e) {
           e.preventDefault();
           $(this).tab('show');
@@ -88,8 +88,8 @@ $( document ).ready(function() {
   };
 
   $("#rechercher").click(function(){rechercheF();});
-  
-  
+
+
 
   $("#rechercher-input").keyup(function (e) {
       if (e.keyCode == 13) {
@@ -100,5 +100,5 @@ $( document ).ready(function() {
   if($.getQuery('value')!==false){
     rechercheF($.getQuery('value'));
   }
-  
+
 });
