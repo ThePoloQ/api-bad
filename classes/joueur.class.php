@@ -99,7 +99,7 @@ class joueur{
           $this->retour = $ArrayRes["Retour"];
           break;
         case "search2016":
-          $this->retour = $ArrayRes["Retour"]["ThisResult"];
+          $this->retour = $ArrayRes["Retour"]["ThisRankingInfo"];
           break;
         default:
           $this->retour = $ArrayRes["Retour"];
