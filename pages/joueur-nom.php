@@ -8,9 +8,10 @@ if (!isset($_POST) || !isset($_POST['value'])) {
 include_once('../classes/joueur.class.php');
 
 
-$recherche = htmlentities($_POST['value']);
+$recherche = htmlentities(preg_replace('/\s+/','|',$_POST['value']));
 
-$ws_fonction = 'ws_getlicenceinfobystartnom';
+//$ws_fonction = 'ws_getlicenceinfobystartnom';
+$ws_fonction = 'search2016';
 
 
 ?>
@@ -27,14 +28,19 @@ $ws_fonction = 'ws_getlicenceinfobystartnom';
           <th style="text-align:center">Pr&eacute;nom</th>
           <th style="text-align:center">Sigle</th>
           <th style="text-align:center">Club</th>
+          <th style="text-align:center">Simple</th>
+          <th style="text-align:center">Double</th>
+          <th style="text-align:center">Mixte</th>
           <th style="text-align:center">Licence</th>
           <th></th>
-        </tr>       
+        </tr>
       </thead>
       <tbody style="text-align:center">
 <?php
 
-  $joueurs = new Joueur(array( "Param1" => '%'.$recherche), $ws_fonction);
+//  $joueurs = new Joueur(array( "Param1" => '%'.$recherche), $ws_fonction);
+  $joueurs = new Joueur(array( "token" => $recherche,"start" => 0, "max" => 50), $ws_fonction);
+
   echo $joueurs->getRows();
 ?>
       </tbody>
