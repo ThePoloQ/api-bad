@@ -99,7 +99,7 @@ class joueur{
           $this->retour = $ArrayRes["Retour"];
           break;
         case "search2016":
-          $this->retour = $ArrayRes["Retour"]["ThisRankingInfo"];
+          $this->retour = $ArrayRes["Retour"]["ThisResult"];
           break;
         default:
           $this->retour = $ArrayRes["Retour"];
@@ -353,9 +353,9 @@ class joueur{
       $output .= '              <td>'.$joueur["PER_PRENOM"].'</td>';
       $output .= '              <td>'.$joueur["INS_SIGLE"].'</td>';
       $output .= '              <td>'.$joueur["INS_NOM"].' ('.$joueur["INS_NUMERO_DEPT"].')</td>';
-      $output .= '              <td>'.self::renderClassement($ret["SIMPLE_NOM"]).'</td>';
-      $output .= '              <td>'.self::renderClassement($ret["DOUBLE_NOM"]).'</td>';
-      $output .= '              <td>'.self::renderClassement($ret["MIXTE_NOM"]).'</td>';
+      $output .= '              <td>'.self::renderClassement($joueur["SIMPLE_NOM"]).'</td>';
+      $output .= '              <td>'.self::renderClassement($joueur["DOUBLE_NOM"]).'</td>';
+      $output .= '              <td>'.self::renderClassement($joueur["MIXTE_NOM"]).'</td>';
       $output .= '              <td>'.$joueur["PER_LICENCE"].'</td>';
       $output .= '              <td><a href="/ffbad/?value='.$joueur["PER_LICENCE"].'"><span class="glyphicon glyphicon-search"></span></td>';
       $output .= '            </tr>';
