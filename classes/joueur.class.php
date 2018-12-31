@@ -356,8 +356,8 @@ class joueur{
       $output .= '              <td>'.self::renderClassement($joueur["SIMPLE_NOM"]).'</td>';
       $output .= '              <td>'.self::renderClassement($joueur["DOUBLE_NOM"]).'</td>';
       $output .= '              <td>'.self::renderClassement($joueur["MIXTE_NOM"]).'</td>';
-      $output .= '              <td>'.$joueur["PER_LICENCE"].'</td>';
-      $output .= '              <td><a href="/ffbad/?value='.$joueur["PER_LICENCE"].'"><span class="glyphicon glyphicon-search"></span></td>';
+      $output .= '              <td><a href="/ffbad/?value='.$joueur["PER_LICENCE"].'">'.$joueur["PER_LICENCE"].'</a></td>';
+      $output .= '              <td><a href="/ffbad/?value='.$joueur["PER_LICENCE"].'"><span class="glyphicon glyphicon-search"></span></a></td>';
       $output .= '            </tr>';
     }
     //var_dump($output); exit;
