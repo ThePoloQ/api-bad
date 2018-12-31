@@ -25,14 +25,10 @@ $ws_fonction = 'search2016';
     <table id="recherche-table" class="table table-condensed table-hover table-striped datatable" style="margin-bottom: 0px; width: 100%">
       <thead>
         <tr>
-          <th style="text-align:center">NOM</th>
-          <th style="text-align:center">Pr&eacute;nom</th>
-          <th style="text-align:center">Sigle</th>
-          <th style="text-align:center">Club</th>
-          <th style="text-align:center">Simple</th>
-          <th style="text-align:center">Double</th>
-          <th style="text-align:center">Mixte</th>
-          <th style="text-align:center">Licence</th>
+          <th style="text-align:center">NOM Pr&eacute;nom</th>
+          <th style="text-align:center">S</th>
+          <th style="text-align:center">D</th>
+          <th style="text-align:center">M</th>
           <th></th>
         </tr>
       </thead>
