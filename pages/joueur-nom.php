@@ -39,7 +39,7 @@ $ws_fonction = 'search2016';
 <?php
 
 //  $joueurs = new Joueur(array( "Param1" => '%'.$recherche), $ws_fonction);
-  $joueurs = new Joueur(array( "token" => $recherche,"start" => 0, "max" => 50), $ws_fonction);
+  $joueurs = new Joueur(array( "token" => $recherche,"start" => 0, "max" => 50, "order"=> 1), $ws_fonction);
 
   echo $joueurs->getRows();
 ?>
