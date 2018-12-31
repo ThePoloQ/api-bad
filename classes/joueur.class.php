@@ -349,15 +349,15 @@ class joueur{
 
     foreach ($this->retour as $joueur){
       $output .=  '            <tr>';
-      $output .= '              <td>'.$joueur["PER_NOM"].'</td>';
-      $output .= '              <td>'.$joueur["PER_PRENOM"].'</td>';
-      $output .= '              <td>'.$joueur["INS_SIGLE"].'</td>';
-      $output .= '              <td>'.$joueur["INS_NOM"].' ('.$joueur["INS_NUMERO_DEPT"].')</td>';
+      if ($joueur["INS_NOM"]) {
+          $club = '<br/><small>'.$joueur["INS_NOM"].' ('.$joueur["INS_NUMERO_DEPT"].')</small>';
+      } else {
+          $club = '<br/><small>Non inscrit</small>';
+      }
+      $output .= '              <td><a href="/ffbad/?value='.$joueur["PER_LICENCE"].'">'.$joueur["PER_NOM"].' '.$joueur["PER_PRENOM"].'</a>'.$club.'</td>';
       $output .= '              <td>'.self::renderClassement($joueur["SIMPLE_NOM"]).'</td>';
       $output .= '              <td>'.self::renderClassement($joueur["DOUBLE_NOM"]).'</td>';
       $output .= '              <td>'.self::renderClassement($joueur["MIXTE_NOM"]).'</td>';
-      $output .= '              <td><a href="/ffbad/?value='.$joueur["PER_LICENCE"].'">'.$joueur["PER_LICENCE"].'</a></td>';
-      $output .= '              <td><a href="/ffbad/?value='.$joueur["PER_LICENCE"].'"><span class="glyphicon glyphicon-search"></span></a></td>';
       $output .= '            </tr>';
     }
     //var_dump($output); exit;
