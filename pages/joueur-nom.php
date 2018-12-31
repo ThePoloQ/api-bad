@@ -29,7 +29,6 @@ $ws_fonction = 'search2016';
           <th style="text-align:center">S</th>
           <th style="text-align:center">D</th>
           <th style="text-align:center">M</th>
-          <th></th>
         </tr>
       </thead>
       <tbody style="text-align:center">
