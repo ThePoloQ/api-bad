@@ -68,10 +68,7 @@ $( document ).ready(function() {
         $r.find('#recherche-table.datatable').DataTable({
           paging: false,
           dom: '',
-          order: [[ 0, 'asc' ]],
-          columnDefs: [
-            { orderable: false, targets: [5] }
-          ]
+          order: [[ 0, 'asc' ]]
         });
 
         $r.find('#res-tabs nav-tabs a').click(function (e) {
